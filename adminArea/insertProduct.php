@@ -67,16 +67,18 @@ include("includes/config.php");
 										$semesterName=$rowSemester['semesterName'];
 										
 										echo "<option value='$semesterId'>$semesterName</option>";
-
-									
 									}
 									?>
 								</select>
 							</td>
 						</tr>
 						<tr>
-							<td>Book Subject Name</td>
+							<td>Book Subject Name:</td>
 							<td><input type="text" name="productSubject" placeholder="Enter subject name as same as in syllabus"></td>
+						</tr>
+						<tr>
+							<td>Book Author Name:</td>
+							<td><input type="text" name="productAuthor" placeholder="Author name"></td>
 						</tr>
 						<tr>
 							<td>Book Image:</td>
@@ -92,7 +94,7 @@ include("includes/config.php");
 						</tr>
 						<tr>
 							<td>Book Keywords:</td>
-							<td><input type="text" name="productKeywords"></td>
+							<td><input type="text" name="productKeywords" placeholder="e.g:author name "></td>
 						</tr>
 						<tr align="center" >
 							<td colspan="7"><input type="submit" name="insertProduct" value="Insert Product Now" style="height: 50px;width: 250px;"></td>
@@ -116,6 +118,7 @@ include("includes/config.php");
 		$productBranch=$_POST['productBranch'];
 		$productSemester=$_POST['productSemester'];
 		$productSubject=$_POST['productSubject'];
+		$productAuthor=$_POST['productAuthor'];
 		$productPrice=$_POST['productPrice'];
 		$productDesc=$_POST['productDesc'];
 		$productKeywords=$_POST['productKeywords'];
@@ -132,7 +135,7 @@ include("includes/config.php");
 	       echo "Upload failed";
 	    }
 
-		$insertProduct="INSERT INTO products (productBranch, productSem, productSubj, productTitle, productPrice, productDesc, productKeywords) VALUES ('$productBranch', '$productSemester', '$productSubject', '$productTitle', '$productPrice', '$productDesc', '$productKeywords')";
+		$insertProduct="INSERT INTO products (productBranch, productSem, productSubj, productTitle, productAuthor, productPrice, productDesc, productKeywords, productImage) VALUES ('$productBranch', '$productSemester', '$productSubject', '$productTitle', '$productAuthor', '$productPrice', '$productDesc', '$productKeywords', '$productImage')";
 		$insertPro=mysqli_query($conn, $insertProduct);
 
 		if ($insertPro) {

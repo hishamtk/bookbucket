@@ -18,9 +18,11 @@
 			  <li ><a href="#home" style="padding: 0px"><img id="logo" src="images/logo.gif" /></a></li>
 			  <li>
 			  	<div class="searchBox">
-			        <input type="search" id="search" placeholder="Search..." />
-			        <input type="submit" name="search" value="Search" class="fa fa-search w3-white w3-border w3-border-red w3-round-large" 
-			          style="height: 50px;width:70px;background-color: #FFF;">
+			        <form action="results.php" method="GET" enctype="multipart/form-data">
+			        	<input type="text" id="search" name="userQuery" placeholder="Search a book" />
+				        <input type="submit" name="search" value="Search" class="fa fa-search w3-white w3-border w3-border-red w3-round-large" 
+				          style="height: 50px;width:70px;background-color: #FFF;">
+			        </form>
 				</div>
 			  </li>
 			  <li class="right" style="margin-top: 25px;"><a href="#about">Login/Register</a></li>
@@ -29,8 +31,8 @@
 		</div>
 		<div class="menubar">
 			<ul>
-			  <li style="margin-left: 30px;"><a href="#home">Home</a></li>
-			  <li><a href="#news">All Products</a></li>
+			  <li style="margin-left: 30px;"><a href="index.php">Home</a></li>
+			  <li><a href="allProducts.php">All Products</a></li>
 			  <li><a href="#contact">Blog</a></li>
 			  <li><a href="#about">Contact Us</a></li>
 			</ul>
@@ -48,7 +50,16 @@
 				</ul>
 			</div>
 			<div class="contentArea">
-				
+				<div id="shoppingCart">
+					<span style="padding: 5px;line-height: 50px;">
+						Welcome guest! <b style="padding-right: 5px;padding-left: 20px;">Shopping Cart:</b>Total items: Total price: <a href="cart.php" style="">Go to Cart</a>
+					</span>
+				</div>
+				<div id="productBox">
+					<?php getProduct(); ?>
+					<?php getBranchPro(); ?>
+					<?php getSemPro(); ?>
+				</div>
 			</div>
 		</div>
 		<div class="footer">
