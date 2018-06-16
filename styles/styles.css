@@ -207,7 +207,6 @@ ul.topnav li h3{
 	padding:20px;
 	float:left;
 	width:20%; /* The width is 20%, by default */
-	border: solid 2px black;
 	overflow: scroll;
 
 }
